@@ -1,0 +1,79 @@
+.diff-container {
+    overflow-x: auto;
+}
+
+.diff-table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    font-family: monospace;
+}
+
+.diff-table tr {
+    border: none;
+}
+
+.diff-table tbody tr {
+    border: none;
+}
+
+.diff-table {
+    border: none;
+    border-spacing: 0;
+}
+
+.diff-table td {
+    border: none;
+    padding: 4px;
+}
+
+.diff-table td.line-no {
+    width: 40px;
+    text-align: right;
+    color: #555;
+}
+
+.diff-table td.action {
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.diff-table td.code {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.diff-table td.copy {
+    width: 40px;
+    text-align: center;
+}
+
+.line-header {
+    background-color: #eeeeee;
+    font-weight: bold;
+}
+
+.line-hunk {
+    background-color: #eef;
+    font-style: italic;
+}
+
+.line-added {
+    background-color: #ddffdd;
+}
+
+.line-removed {
+    background-color: #ffdddd;
+}
+
+.line-context {
+    background-color: #ffffff;
+}
+
+.copy-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
