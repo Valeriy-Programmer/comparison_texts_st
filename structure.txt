@@ -1,0 +1,19 @@
+comparison_texts_st/
+    app.py
+    README.md
+    requirements.txt
+    structure.txt
+.streamlit/
+    config.toml
+core/
+    diff_engine.py
+    html_helpers.py
+    __init__.py
+styles/
+    styles.css
+ui/
+    layout.py
+    __init__.py
+utils/
+    text.py
+    __init__.py

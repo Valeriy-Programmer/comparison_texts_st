@@ -11,7 +11,7 @@ def wrap_line(old_lineno, new_lineno, action, content, css_class, raw_text=None)
     button_html = (
         f"<button onclick=\"navigator.clipboard.writeText('{escaped_text}');"
         " this.innerText='✔'; setTimeout(()=>this.innerText='📋',1000);\""
-        " class='copy-btn'>📋</button>"
+        " class='copy-btn'></button>"
         if show_button
         else ""
     )

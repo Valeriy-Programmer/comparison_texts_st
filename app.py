@@ -11,11 +11,20 @@ with open("styles/styles.css") as f:
 
 st.title("📄 Сравнение текстов")
 
+compare_mode = st.radio(
+    "Режим сравнения:",
+    ("Только текст (без тегов)", "Исходный текст (вместе с тегами)"),
+)
+
 text1, text2 = render_text_inputs()
 
 if st.button("Сравнить"):
-    clean1 = strip_html_tags(text1)
-    clean2 = strip_html_tags(text2)
+    if compare_mode == "Только текст (без тегов)":
+        clean1 = strip_html_tags(text1)
+        clean2 = strip_html_tags(text2)
+    else:
+        clean1 = text1
+        clean2 = text2
 
     if clean1.strip() == clean2.strip():
         st.success("✅ Тексты идентичны.")
