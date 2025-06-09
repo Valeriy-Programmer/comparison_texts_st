@@ -1,6 +1,6 @@
 import difflib
 import html as html_module
-from core.html_helpers import highlight_inline_changes
+from core.html_helpers import highlight_inline_changes, wrap_line
 
 
 def git_style_diff_html(text1, text2):
@@ -13,30 +13,6 @@ def git_style_diff_html(text1, text2):
     table_rows = []
     old_line_no = 0
     new_line_no = 0
-
-    def wrap_line(old_lineno, new_lineno, action, content, css_class, raw_text=None):
-        if raw_text is None:
-            raw_text = content
-
-        escaped_text = html_module.escape(raw_text).replace("'", "\\'")
-        show_button = action in ("+", "-")
-        button_html = (
-            f"<button onclick=\"navigator.clipboard.writeText('{escaped_text}');"
-            " this.innerText='✔'; setTimeout(()=>this.innerText='📋',1000);\""
-            " class='copy-btn'>📋</button>"
-            if show_button
-            else ""
-        )
-
-        return (
-            f"<tr class='{css_class}'>"
-            f"<td class='line-no'>{old_lineno or ''}</td>"
-            f"<td class='line-no'>{new_lineno or ''}</td>"
-            f"<td class='action'>{action}</td>"
-            f"<td class='code'>{content}</td>"
-            f"<td class='copy'>{button_html}</td>"
-            f"</tr>"
-        )
 
     i = 0
     while i < len(diff):

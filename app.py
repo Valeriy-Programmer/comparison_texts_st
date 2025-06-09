@@ -1,9 +1,10 @@
 import streamlit as st
-from core.diff_engine import git_style_diff_html
 from utils.text import strip_html_tags
 from ui.layout import render_text_inputs, render_diff_result
 
 st.set_page_config(page_title="Text Diff Viewer", layout="wide")
+
+# streamlit run app.py
 
 with open("styles/styles.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)

@@ -2,7 +2,7 @@ import difflib
 import html as html_module
 
 
-def wrap_line(old_lineno, new_lineno, action, content, bg_color, raw_text=None):
+def wrap_line(old_lineno, new_lineno, action, content, css_class, raw_text=None):
     if raw_text is None:
         raw_text = content
 
@@ -11,20 +11,18 @@ def wrap_line(old_lineno, new_lineno, action, content, bg_color, raw_text=None):
     button_html = (
         f"<button onclick=\"navigator.clipboard.writeText('{escaped_text}');"
         " this.innerText='✔'; setTimeout(()=>this.innerText='📋',1000);\""
-        " style='background:transparent; border:none; cursor:pointer; font-size:14px;'>📋</button>"
+        " class='copy-btn'>📋</button>"
         if show_button
         else ""
     )
 
     return (
-        f"<tr style='background-color:{bg_color};'>"
-        f"<td style='border:1px solid {bg_color}; width:40px; text-align:right; color:#555'>{old_lineno or ''}</td>"
-        f"<td style='border:1px solid {bg_color}; width:40px; text-align:right; color:#555'>{new_lineno or ''}</td>"
-        f"<td style='border:1px solid {bg_color}; width:40px; text-align:center;'>{action}</td>"
-        f"<td style='border:1px solid {bg_color}; white-space:pre-wrap; word-break:break-word;'>{content}</td>"
-        f"<td style='border:1px solid {bg_color}; width:40px; text-align:center;'>"
-        f"<div style='display:flex; justify-content:center; align-items:center; height:100%;'>{button_html}</div>"
-        f"</td>"
+        f"<tr class='{css_class}'>"
+        f"<td class='line-no'>{old_lineno or ''}</td>"
+        f"<td class='line-no'>{new_lineno or ''}</td>"
+        f"<td class='action'>{action}</td>"
+        f"<td class='code'>{content}</td>"
+        f"<td class='copy'>{button_html}</td>"
         f"</tr>"
     )
 
